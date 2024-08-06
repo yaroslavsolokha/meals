@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals/providers/filters_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals/providers/filters_provider.dart';
 
 class FiltersScreen extends ConsumerStatefulWidget {
   const FiltersScreen({super.key});
@@ -34,9 +34,9 @@ class _FiltersScreenState extends ConsumerState<FiltersScreen> {
         title: const Text('Your filters'),
       ),
       body: PopScope(
-        canPop: false,
+        canPop: true,
         onPopInvoked: (bool didPop) {
-          if (didPop) return;
+          //if (didPop) return; // probale no need !!
           ref.read(filtersProvider.notifier).setFilters({
             Filter.glutenFree: _glutenFreeFilterSet,
             Filter.lactosFree: _lactoseFreeFilterSet,
